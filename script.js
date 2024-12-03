@@ -43,10 +43,27 @@ function slideCarousel() {
   }
 
   // Calcoliamo la larghezza di un'immagine (comprese margin) e spostiamo il carosello
-  const translateX = -index * (image[0].clientWidth + 30); // larghezza + margin
+  const translateX = -index * (image[0].clientWidth + 20); // larghezza + margin
 
   carouselInner.style.transform = `translateX(${translateX}px)`;
 }
 
 // Far partire lo slider ogni 3 secondi
 setInterval(slideCarousel, 3000);
+
+//* box message */
+document.querySelector(".box-form").addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  const confirmationMessage = document.getElementById("confirmation-message");
+  const boxMessage = document.querySelector(".container-message-box");
+
+  confirmationMessage.textContent = "Thank you! Your message has been sent.";
+  boxMessage.classList.remove("hidden");
+  confirmationMessage.classList.add("visible");
+
+  // setTimeout(() => {
+  //   confirmationMessage.classList.remove("visible");
+  //   boxMessage.style.opacity = "0";
+  // }, 5000);
+});
