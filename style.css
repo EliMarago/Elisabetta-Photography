@@ -710,8 +710,12 @@ textarea::placeholder {
 }
 @media (max-width: 47em) {
   .gallery {
-    margin-left: -36px;
-    width: 115%;
+    margin-left: -75px;
+    width: 127%;
+  }
+  .carousel {
+    width: 60rem;
+    margin-left: -9rem;
   }
   .footer__nav-section {
     margin-left: 44%;
@@ -730,6 +734,19 @@ textarea::placeholder {
     width: 110%;
     margin-left: -4%;
     margin-top: 3rem;
+  }
+  .text-about {
+    transform: translate(7%, -2%);
+    font-size: 1.9rem;
+  }
+  .image-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 4fr);
+    gap: 2rem;
+    grid-auto-rows: 31rem;
+  }
+  .box-form input {
+    width: 67%;
   }
 }
 @media (max-width: 40em) {
@@ -752,7 +769,8 @@ textarea::placeholder {
   }
   .carousel {
     margin: 19px 0px;
-    width: 100%;
+    margin-left: -8rem;
+    width: 60rem;
   }
   .gallery {
     margin-left: -68px;
@@ -768,7 +786,7 @@ textarea::placeholder {
 }
 @media (max-width: 38em) {
   html {
-    font-size: 75%;
+    font-size: 70%;
   }
   .home-text h1 {
     font-size: 2.5rem;
@@ -779,19 +797,21 @@ textarea::placeholder {
   }
   .image-grid {
     display: grid;
-    grid-template-columns: repeat(2, 3fr);
+    grid-template-columns: repeat(1, 3fr);
     gap: 1rem;
     grid-auto-rows: 24rem;
     width: 113%;
     margin-left: -5%;
   }
   .text-about {
-    font-size: 1.2rem;
+    font-size: 1.8rem;
     margin-top: -2rem;
+    transform: translate(1%, 4%);
+    padding: 2rem;
   }
   .footer__nav-section {
-    margin-left: 40%;
-    margin-right: -5rem;
+    margin-left: 29%;
+    margin-right: -8rem;
   }
   .footer__logo-section {
     transform: translate(-21%, -16%);
@@ -804,7 +824,7 @@ textarea::placeholder {
   .container-message-box {
     height: 7rem;
     width: 110%;
-    margin-left: -4%;
+    margin-left: -2%;
     margin-top: 3rem;
   }
 }
@@ -812,6 +832,10 @@ textarea::placeholder {
 @media (max-width: 33em) {
   html {
     font-size: 65%;
+  }
+  .gallery {
+    margin-left: -7rem;
+    width: 140%;
   }
   .carousel {
     margin-left: -10%;
@@ -824,6 +848,7 @@ textarea::placeholder {
   }
   .text-email {
     margin-top: -1rem;
+    margin-left: 2rem;
   }
   .footer__nav-section {
     margin-left: 35%;
@@ -868,8 +893,69 @@ textarea::placeholder {
     margin-left: -4%;
     margin-top: 3rem;
   }
+  .carousel {
+    margin: 20px 0px;
+    width: 85%;
+  }
+  .box-form div {
+    margin-left: -2rem;
+  }
+}
+@media (max-width: 34em) {
+  .text-about {
+    font-size: 1.9rem;
+    padding: 2rem;
+  }
+  .carousel {
+    margin-left: -8rem;
+    width: 53rem;
+  }
+  .gallery {
+    width: 140%;
+    margin-left: -6rem;
+  }
+  .footer-logo {
+    margin-left: 9rem;
+    width: 10rem;
+    height: 9rem;
+  }
+  .footer__logo-section {
+    order: 2;
+    margin-left: 10rem;
+    margin-top: 1rem;
+  }
+  .footer__container {
+    display: flex;
+    flex-direction: column;
+  }
+  .footer__copyright {
+    font-size: 1rem;
+    margin-left: -3rem;
+  }
+  .footer__contact {
+    margin-left: 5rem;
+  }
+  .footer__nav-section {
+    margin-left: 32%;
+    margin-right: 0;
+    margin-top: 9rem;
+    order: 1;
+  }
+  .box-text-email {
+    margin-top: 0rem;
+  }
+  .box-form div {
+    margin-left: -2rem;
+  }
 }
 @media (max-width: 28em) {
+  html {
+    font-size: 65%;
+  }
+  .gallery {
+    width: 151%;
+    margin-left: -7rem;
+  }
   .text-email {
     margin-top: -1rem;
     margin-left: 2rem;
@@ -894,7 +980,7 @@ textarea::placeholder {
     margin-left: 3rem;
   }
   .footer__logo-section img {
-    margin-left: 5rem;
+    margin-left: 6rem;
   }
   .confirmation-message {
     font-size: 1.9rem;
@@ -907,40 +993,58 @@ textarea::placeholder {
     margin-left: -4%;
     margin-top: 3rem;
   }
+  .carousel {
+    margin-left: -8rem;
+    width: 44rem;
+  }
+  .box-form {
+    margin-left: -3rem;
+  }
+  .img-photo-me {
+    max-width: 52%;
+  }
 }
 
 @media (max-width: 24em) {
   html {
-    font-size: 50%;
+    font-size: 65%;
+  }
+  .photos {
+    padding: 7rem;
   }
   .gallery {
-    margin-left: -6.5rem;
-    width: 128%;
+    margin-left: -6.3rem;
+    width: 151%;
   }
   .image-grid {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     gap: 1rem;
-    grid-auto-rows: 41rem;
-    width: 113%;
-    margin-left: -5%;
+    grid-auto-rows: 23rem;
+    width: 143%;
+    margin-left: -22%;
   }
   .text-about {
-    font-size: 1.2rem;
-    transform: translate(2%, 2%);
+    font-size: 1.6rem;
+    transform: translate(2%, -8%);
   }
   .text-email {
     margin-top: -2rem;
   }
   .footer__nav-section {
-    margin-left: 34%;
+    margin-left: 26%;
     margin-right: 0;
-    margin-top: 9rem;
+    margin-top: 12rem;
     order: 1;
+  }
+
+  .title-about {
+    margin-bottom: 3rem;
+    margin-top: 6rem;
   }
   .footer__logo-section {
     order: 2;
-    margin-left: 8rem;
+    margin-left: 3rem;
     margin-top: 1rem;
   }
   .footer__container {
@@ -948,19 +1052,59 @@ textarea::placeholder {
     flex-direction: column;
   }
   .footer__logo-section img {
-    margin-left: 11rem;
+    margin-left: 10rem;
   }
   .footer__copyright {
     margin-left: 8rem;
     font-size: 1.2rem;
   }
+  .box-form {
+    margin-left: -5rem;
+  }
+  .container-box p {
+    white-space: nowrap;
+    display: flex;
+    justify-content: center;
+  }
+  .box-container-form {
+    white-space: nowrap;
+    display: flex;
+    justify-content: center;
+  }
 }
 @media (max-width: 20em) {
   .text-about {
-    font-size: 1rem;
+    font-size: 1.9rem;
     transform: translate(1%, 2%);
   }
   .gallery {
-    margin-left: -5.5rem;
+    margin-left: -6rem;
+    width: 172%;
+  }
+  .image-grid {
+    width: 185%;
+    grid-auto-rows: 24rem;
+    margin-left: -40%;
+  }
+  .carousel {
+    margin-left: -7rem;
+    width: 30rem;
+  }
+  .text-section-title h2 {
+    padding: 2rem;
+  }
+  .img-photo-me {
+    max-width: 57%;
+  }
+  .box-form {
+    margin-left: -9rem;
+  }
+  .footer__nav-section {
+    margin-left: 18%;
+    margin-top: 13rem;
+  }
+  .footer__logo-section {
+    margin-top: 1rem;
+    margin-left: 0rem;
   }
 }
