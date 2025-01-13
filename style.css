@@ -1159,8 +1159,10 @@ textarea::placeholder {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 1.2rem;
-
     border-radius: 1.1rem;
+    max-width: 1200px; /* Limita la larghezza massima */
+    width: 130%;
+    margin-left: -36px;
   }
   .gallery-item {
     width: 97%;
