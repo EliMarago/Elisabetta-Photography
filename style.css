@@ -1033,9 +1033,9 @@ textarea::placeholder {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 1.2rem;
-    width: 100%; /* Mantiene la galleria centrata */
+    width: 138%; /* Mantiene la galleria centrata */
     margin-top: 1rem;
-    margin-left: 7%;
+    margin-left: -19%;
     border-radius: 1.1rem;
   }
   .gallery-item {
@@ -1159,9 +1159,10 @@ textarea::placeholder {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 1.2rem;
-    width: 100%; /* Mantiene la galleria centrata */
+    width: 140%; /* Mantiene la galleria centrata */
     margin-top: 1rem;
-    margin-left: 7%;
+    margin-left: -20%;
+
     border-radius: 1.1rem;
   }
   .gallery-item {
