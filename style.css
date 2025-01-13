@@ -956,9 +956,26 @@ textarea::placeholder {
     width: 151%;
     margin-left: -7rem;
   }
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.2rem;
+    width: 124%; /* Mantiene la galleria centrata */
+    margin-top: 1rem;
+    margin-left: -10%;
+    border-radius: 1.1rem;
+  }
+  .gallery-item {
+    width: 97%;
+    margin-left: 0.2rem;
+  }
   .text-email {
     margin-top: -1rem;
     margin-left: 2rem;
+  }
+  .image-grid {
+    margin-left: -45px;
+    width: 140%;
   }
   .footer__nav-section {
     margin-left: 29%;
@@ -1091,8 +1108,17 @@ textarea::placeholder {
     transform: translate(1%, 2%);
   }
   .gallery {
-    margin-left: -6rem;
-    width: 172%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.2rem;
+    width: 100%; /* Mantiene la galleria centrata */
+    margin-top: 1rem;
+    margin-left: 7%;
+    border-radius: 1.1rem;
+  }
+  .gallery-item {
+    width: 97%;
+    margin-left: 0.2rem;
   }
   .image-grid {
     width: 185%;
@@ -1130,8 +1156,17 @@ textarea::placeholder {
     padding: 7rem;
   }
   .gallery {
-    margin-left: -6.3rem;
-    width: 151%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.2rem;
+    width: 100%; /* Mantiene la galleria centrata */
+    margin-top: 1rem;
+    margin-left: 7%;
+    border-radius: 1.1rem;
+  }
+  .gallery-item {
+    width: 97%;
+    margin-left: 0.2rem;
   }
   .image-grid {
     display: grid;
