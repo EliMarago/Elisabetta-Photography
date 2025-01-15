@@ -1007,12 +1007,12 @@ textarea::placeholder {
   .container-message-box {
     height: 7rem;
     width: 130%;
-    margin-left: -4%;
+    margin-left: -16%;
     margin-top: 3rem;
   }
   .carousel {
-    margin-left: -8rem;
-    width: 44rem;
+    margin-left: -9rem;
+    width: 42rem;
   }
   .box-form {
     margin-left: -3rem;
