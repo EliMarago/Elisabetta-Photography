@@ -41,15 +41,20 @@ function slideCarousel() {
   if (index >= image.length) {
     index = 0;
   }
+  const imageStyle = getComputedStyle(image[0]);
+  const imageMargin =
+    parseInt(imageStyle.marginLeft) + parseInt(imageStyle.marginRight); // Margine totale
+  const imageWidth = image[0].clientWidth; // Larghezza immagine
+  const totalWidth = imageWidth + imageMargin;
 
   // Calcoliamo la larghezza di un'immagine (comprese margin) e spostiamo il carosello
-  const translateX = -index * (image[0].clientWidth + 20); // larghezza + margin
+  const translateX = -index * totalWidth;
 
   carouselInner.style.transform = `translateX(${translateX}px)`;
 }
 
 // Far partire lo slider ogni 3 secondi
-setInterval(slideCarousel, 3000);
+setInterval(slideCarousel, 4000);
 
 //* box message */
 document.querySelector(".box-form").addEventListener("submit", function (e) {
