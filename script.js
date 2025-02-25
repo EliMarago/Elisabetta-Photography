@@ -74,39 +74,3 @@ document.querySelector(".box-form").addEventListener("submit", function (e) {
     boxMessage.style.opacity = "0";
   }, 5000);
 });
-
-// aggiungere il messaggio del form
-document.addEventListener("DOMContentLoaded", function () {
-  const form = document.querySelector(".box-form");
-  const confirmationMessage = document.getElementById("confirmation-message");
-  const messageBox = document.querySelector(".container-message-box");
-
-  form.addEventListener("submit", function (event) {
-    event.preventDefault(); // Evita il refresh della pagina
-
-    const formData = new FormData(form);
-
-    fetch("/", {
-      method: "POST",
-      body: formData,
-    })
-      .then((response) => {
-        if (response.ok) {
-          form.style.display = "none"; // Nasconde il form
-          messageBox.classList.remove("hidden");
-          confirmationMessage.textContent =
-            "Grazie! Il tuo messaggio è stato inviato con successo.";
-          confirmationMessage.classList.add("visible");
-        } else {
-          confirmationMessage.textContent =
-            "Errore nell'invio. Riprova più tardi.";
-          confirmationMessage.classList.add("visible");
-        }
-      })
-      .catch((error) => {
-        confirmationMessage.textContent =
-          "Errore di connessione. Controlla la tua rete.";
-        confirmationMessage.classList.add("visible");
-      });
-  });
-});
