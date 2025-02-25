@@ -33,12 +33,13 @@ setInterval(changeBackground, 4000);
 const carouselInner = document.querySelector(".carousel-inner");
 const image = document.querySelectorAll(".carousel-inner img");
 let index = 0; // Indice corrente della foto visibile
+let maxSlide = image.length;
 
 function slideCarousel() {
   index++;
 
   // Se siamo oltre l'ultima immagine, resettiamo l'indice
-  if (index >= image.length) {
+  if (index === maxSlide - 2) {
     index = 0;
   }
   const imageStyle = getComputedStyle(image[0]);
@@ -54,21 +55,58 @@ function slideCarousel() {
 }
 
 // Far partire lo slider ogni 3 secondi
-setInterval(slideCarousel, 4000);
+setInterval(slideCarousel, 3000);
 
 //* box message */
-document.querySelector(".box-form").addEventListener("submit", function (e) {
-  e.preventDefault();
+// document.querySelector(".box-form").addEventListener("submit", function (e) {
+//   e.preventDefault();
 
+//   const confirmationMessage = document.getElementById("confirmation-message");
+//   const boxMessage = document.querySelector(".container-message-box");
+
+//   confirmationMessage.textContent = "Thank you! Your message has been sent.";
+//   boxMessage.classList.remove("hidden");
+//   confirmationMessage.classList.add("visible");
+
+//   e.target.reset();
+//   setTimeout(() => {
+//     confirmationMessage.classList.remove("visible");
+//     boxMessage.style.opacity = "0";
+//   }, 5000);
+// });
+
+// aggiungere il messaggio del form
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.querySelector(".box-form");
   const confirmationMessage = document.getElementById("confirmation-message");
-  const boxMessage = document.querySelector(".container-message-box");
+  const messageBox = document.querySelector(".container-message-box");
 
-  confirmationMessage.textContent = "Thank you! Your message has been sent.";
-  boxMessage.classList.remove("hidden");
-  confirmationMessage.classList.add("visible");
+  form.addEventListener("submit", function (event) {
+    event.preventDefault(); // Evita il refresh della pagina
 
-  // setTimeout(() => {
-  //   confirmationMessage.classList.remove("visible");
-  //   boxMessage.style.opacity = "0";
-  // }, 5000);
+    const formData = new FormData(form);
+
+    fetch("/", {
+      method: "POST",
+      body: formData,
+    })
+      .then((response) => {
+        if (response.ok) {
+          form.style.display = "none"; // Nasconde il form
+          messageBox.classList.remove("hidden");
+          confirmationMessage.textContent =
+            "Grazie! Il tuo messaggio è stato inviato con successo.";
+          confirmationMessage.classList.add("visible");
+        } else {
+          confirmationMessage.textContent =
+            "Errore nell'invio. Riprova più tardi.";
+          confirmationMessage.classList.add("visible");
+        }
+      })
+      .catch((error) => {
+        confirmationMessage.textContent =
+          "Errore di connessione. Controlla la tua rete.";
+        confirmationMessage.classList.add("visible");
+      });
+  });
 });
