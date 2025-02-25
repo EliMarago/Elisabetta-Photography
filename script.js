@@ -58,22 +58,22 @@ function slideCarousel() {
 setInterval(slideCarousel, 3000);
 
 //* box message */
-// document.querySelector(".box-form").addEventListener("submit", function (e) {
-//   e.preventDefault();
+document.querySelector(".box-form").addEventListener("submit", function (e) {
+  e.preventDefault();
 
-//   const confirmationMessage = document.getElementById("confirmation-message");
-//   const boxMessage = document.querySelector(".container-message-box");
+  const confirmationMessage = document.getElementById("confirmation-message");
+  const boxMessage = document.querySelector(".container-message-box");
 
-//   confirmationMessage.textContent = "Thank you! Your message has been sent.";
-//   boxMessage.classList.remove("hidden");
-//   confirmationMessage.classList.add("visible");
+  confirmationMessage.textContent = "Thank you! Your message has been sent.";
+  boxMessage.classList.remove("hidden");
+  confirmationMessage.classList.add("visible");
 
-//   e.target.reset();
-//   setTimeout(() => {
-//     confirmationMessage.classList.remove("visible");
-//     boxMessage.style.opacity = "0";
-//   }, 5000);
-// });
+  e.target.reset();
+  setTimeout(() => {
+    confirmationMessage.classList.remove("visible");
+    boxMessage.style.opacity = "0";
+  }, 5000);
+});
 
 // aggiungere il messaggio del form
 document.addEventListener("DOMContentLoaded", function () {
