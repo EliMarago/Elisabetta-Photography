@@ -57,20 +57,39 @@ function slideCarousel() {
 // Far partire lo slider ogni 3 secondi
 setInterval(slideCarousel, 3000);
 
-//* box message */
-document.querySelector(".box-form").addEventListener("submit", function (e) {
-  e.preventDefault();
+// //* box message */
+// document.querySelector(".box-form").addEventListener("submit", function (e) {
+//   e.preventDefault();
 
-  const confirmationMessage = document.getElementById("confirmation-message");
-  const boxMessage = document.querySelector(".container-message-box");
+//   const confirmationMessage = document.getElementById("confirmation-message");
+//   const boxMessage = document.querySelector(".container-message-box");
 
-  confirmationMessage.textContent = "Thank you! Your message has been sent.";
-  boxMessage.classList.remove("hidden");
-  confirmationMessage.classList.add("visible");
+//   confirmationMessage.textContent = "Thank you! Your message has been sent.";
+//   boxMessage.classList.remove("hidden");
+//   confirmationMessage.classList.add("visible");
 
-  e.target.reset();
-  setTimeout(() => {
-    confirmationMessage.classList.remove("visible");
-    boxMessage.style.opacity = "0";
-  }, 5000);
-});
+//   e.target.reset();
+//   setTimeout(() => {
+//     confirmationMessage.classList.remove("visible");
+//     boxMessage.style.opacity = "0";
+//   }, 5000);
+// });
+// script.js
+
+function handleSubmit(event) {
+  event.preventDefault();
+  const form = event.target;
+  const thankYouMessage = document.getElementById("confirmation-message");
+
+  fetch("/", {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: new URLSearchParams(new FormData(form)).toString(),
+  })
+    .then(() => {
+      form.reset(); // Ripulisci il form
+      form.style.display = "none";
+      thankYouMessage.style.display = "block";
+    })
+    .catch((error) => alert(`Errore nell'invio del form: ` + error));
+}
