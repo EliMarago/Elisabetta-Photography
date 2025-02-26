@@ -60,18 +60,37 @@ setInterval(slideCarousel, 3000);
 // //* box message */
 document.querySelector(".box-form").addEventListener("submit", function (e) {
   e.preventDefault();
+  const form = e.target;
+  const formData = new FormData(form);
 
-  const confirmationMessage = document.getElementById("confirmation-message");
-  const boxMessage = document.querySelector(".container-message-box");
+  fetch("/", {
+    method: "POST",
+    headers: { "Content-type": "application/x-www-form-urlencoded" },
+    body: new URLSearchParams(formData).toString(),
+  })
+    .then((response) => {
+      if (response.ok) {
+        confirmationMessage("Thank you! Your message has been sent");
+        form.reset();
+      } else {
+        confirmationMessage("Oops! Something went wrong. Please try again");
+      }
+    })
+    .catch(() => {
+      confirmationMessage("An error occurred. Please try again later");
+    });
+  function confirmationMessage(message) {
+    const confirmationMessage = document.getElementById("confirmation-message");
+    const boxMessage = document.querySelector(".container-message-box");
 
-  confirmationMessage.textContent = "Thank you! Your message has been sent.";
-  boxMessage.classList.remove("hidden");
-  confirmationMessage.classList.add("visible");
+    confirmationMessage.textContent = message;
+    boxMessage.classList.remove("hidden");
+    confirmationMessage.classList.add("visible");
 
-  e.target.reset();
-  setTimeout(() => {
-    confirmationMessage.classList.remove("visible");
-    boxMessage.style.opacity = "0";
-  }, 5000);
+    setTimeout(() => {
+      confirmationMessage.classList.remove("visible");
+      boxMessage.classList.add("hidden");
+    }, 5000);
+  }
 });
-script.js;
+
