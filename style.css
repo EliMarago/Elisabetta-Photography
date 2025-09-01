@@ -11,6 +11,7 @@ html,
 body {
   overflow-x: hidden;
   width: 100%;
+  scroll-behavior: smooth;
 }
 html {
   font-size: 63.5%;
@@ -29,28 +30,36 @@ html {
   background-color: #201f1f;
 }
 .header {
-  position: relative;
-  top: 0;
-  left: 0;
+  position: relative; /* normale all’inizio */
   width: 100%;
-  height: auto;
   padding: 1rem 5%;
-  background-color: rgba(63, 63, 63, 0.884);
+  background-color: rgba(63, 63, 63, 0.8);
   display: flex;
   flex-direction: column;
   align-items: center;
-  z-index: 100;
-  transition: top 0.3s;
   text-align: center;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  z-index: 999;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease,
+    transform 0.5s ease;
 }
 .sticky .header {
   position: fixed;
   top: 0;
   left: 0;
-  background-color: rgba(87, 87, 87, 0.692);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  z-index: 999;
+  transform: translateY(-14px); /* parte leggermente su */
+  background-color: rgba(87, 87, 87, 0.6);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  animation: slideDown 0.4s forwards;
+}
+@keyframes slideDown {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 .logo {
   color: #cdcaca;
