@@ -29,13 +29,13 @@ html {
   background-color: #201f1f;
 }
 .header {
-  position: fixed;
+  position: relative;
   top: 0;
   left: 0;
   width: 100%;
   height: auto;
   padding: 1rem 5%;
-  background-color: #6b6969ac;
+  background-color: rgba(63, 63, 63, 0.884);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -43,6 +43,14 @@ html {
   transition: top 0.3s;
   text-align: center;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.sticky .header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(87, 87, 87, 0.692);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 999;
 }
 .logo {
   color: #cdcaca;
