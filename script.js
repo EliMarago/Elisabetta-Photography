@@ -58,17 +58,22 @@ function slideCarousel() {
 setInterval(slideCarousel, 3000);
 
 // //* box message */
+//1. intercettare l'invio del form e impedirne il comportamento predefinito(reindirizzamento alla pagina di conferma di netlify)
+//2. mostrare un messaggio di conferma personalizzato invece di quello standard di netlify
 document.querySelector(".box-form").addEventListener("submit", function (e) {
-  e.preventDefault();
-  const form = e.target;
-  const formData = new FormData(form);
+  e.preventDefault(); //impedisce il comportamento predefinito del form(redirect o refresh della pagina)
+
+  const form = e.target; // seleziona il form che scatena l'evento
+  const formData = new FormData(form); // crea un oggetto con tutti i dati del form(nome,email,messaggio)
 
   fetch("/", {
+    // i dati vengono inviati a netlify
     method: "POST",
-    headers: { "Content-type": "application/x-www-form-urlencoded" },
-    body: new URLSearchParams(formData).toString(),
+    headers: { "Content-type": "application/x-www-form-urlencoded" }, // indica il formato dei dati inviati
+    body: new URLSearchParams(formData).toString(), // i dati vengono convertiti in un formato leggibile
   })
     .then((response) => {
+      // gestisce la risposta del server
       if (response.ok) {
         confirmationMessage("Thank you! Your message has been sent");
         form.reset();
@@ -79,6 +84,7 @@ document.querySelector(".box-form").addEventListener("submit", function (e) {
     .catch(() => {
       confirmationMessage("An error occurred. Please try again later");
     });
+  //la funziona mostra e nasconde il messaggio personalizzato
   function confirmationMessage(message) {
     const confirmationMessage = document.getElementById("confirmation-message");
     const boxMessage = document.querySelector(".container-message-box");
@@ -94,3 +100,42 @@ document.querySelector(".box-form").addEventListener("submit", function (e) {
   }
 });
 
+// document.querySelector(".box-form").addEventListener("submit", function (e) {
+//   e.preventDefault();
+
+//   const confirmationMessage = document.getElementById("confirmation-message");
+//   const boxMessage = document.querySelector(".container-message-box");
+
+//   confirmationMessage.textContent = "Thank you! Your message has been sent.";
+//   boxMessage.classList.remove("hidden");
+//   confirmationMessage.classList.add("visible");
+
+//   e.target.reset();
+//   setTimeout(() => {
+//     confirmationMessage.classList.remove("visible");
+//     boxMessage.style.opacity = "0";
+//   }, 5000);
+// });
+// script.js;
+
+//sticky nav
+const sectionHome = document.querySelector(".home");
+
+const obs = new IntersectionObserver(
+  function (entries) {
+    const ent = entries[0];
+
+    if (ent.isIntersecting === false) {
+      document.body.classList.add("sticky");
+    }
+    if (ent.isIntersecting === true) {
+      document.body.classList.remove("sticky");
+    }
+  },
+  {
+    root: null,
+    threshold: 0,
+    rootMargin: "-80px",
+  }
+);
+obs.observe(sectionHome);
