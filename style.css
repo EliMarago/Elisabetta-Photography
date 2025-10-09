@@ -219,9 +219,9 @@ img {
 }
 .image-grid {
   display: grid;
-  grid-template-columns: repeat(3, 2fr);
+  grid-template-columns: repeat(3, 3fr);
   gap: 2rem;
-  grid-auto-rows: 40rem;
+  grid-auto-rows: 43rem;
 }
 .image-grid img {
   width: 100%;
