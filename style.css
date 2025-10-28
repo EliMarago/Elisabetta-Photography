@@ -181,9 +181,9 @@ img {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1.2rem;
-  width: 90%; /* Mantiene la galleria centrata */
+  width: 93%; /* Mantiene la galleria centrata */
   margin-top: 1rem;
-  margin-left: 7%;
+  margin-left: 6%;
 }
 
 .gallery-item img {
@@ -1212,7 +1212,7 @@ textarea::placeholder {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     gap: 1rem;
-    grid-auto-rows: 23rem;
+    grid-auto-rows: 34rem;
     width: 143%;
     margin-left: -22%;
   }
